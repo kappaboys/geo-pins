@@ -9,15 +9,16 @@ import { ME_QUERY } from '../../graphql/mutations';
 
 const Login = ({ classes }) => {
   const { dispatch } = useContext(Context);
-  const onSuccess = async (user) => {
+  const onSuccess = async (googleUser) => {
     try {
-      const idToken = user.getAuthResponse().id_token;
+      const idToken = googleUser.getAuthResponse().id_token;
       const client = new GraphQLClient('http://localhost:4000', {
         headers: { authorization: idToken }
       });
 
       const { me } = await client.request(ME_QUERY);
       dispatch({ type: 'LOGIN_USER', payload: me });
+      dispatch({ type: 'IS_LOGGED_IN', payload: googleUser.isSignedIn() });
     } catch (err) {
       onFailure(err);
     }
