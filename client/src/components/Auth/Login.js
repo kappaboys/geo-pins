@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
 
 import Context from '../../context';
-import { ME_QUERY } from '../../graphql/mutations';
+import { ME_QUERY } from '../../graphql/queries';
 
 const Login = ({ classes }) => {
   const { dispatch } = useContext(Context);
