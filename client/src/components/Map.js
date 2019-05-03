@@ -16,7 +16,6 @@ const INITIAL_VIEWPORT = {
 
 const Map = ({ classes }) => {
   const { state, dispatch } = useContext(Context);
-  console.log({ state });
   const [viewport, setViewport] = useState(INITIAL_VIEWPORT);
   const [userPosition, setUserPosition] = useState(null);
   useEffect(() => {
