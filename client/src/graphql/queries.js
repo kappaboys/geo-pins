@@ -31,6 +31,7 @@ export const GET_PINS_QUERY = `
         author {
           _id
           name
+          picture
         }
       }
     }
